@@ -1,0 +1,58 @@
+Design Pattern 
+8 Jun 2024
+
+Tirta Hakim Pambudhi
+tirtanewwhakim22@gmail.com
+Repository https://github.com/tirtahakimpambudhi/Design-Pattern
+
+*  Apa itu Design Pattern ?
+
+*Design* *Pattern* adalah konsep dalam rekayasa perangkat lunak yang memberikan solusi terstruktur untuk masalah umum dalam desain perangkat lunak dan mendorong praktik desain yang baik.
+
+*Ada* *3* *Jenis* *Design* *Pattern* 
+
+- *Creational* *Pattern* adalah menyediakan mekanisme pembuatan objek yang meningkatkan fleksibilitas dan penggunaan ulang kode yang sudah ada.
+
+- *Structural* *Pattern* adalah menjelaskan cara menyusun objek dan kelas menjadi struktur yang lebih besar, sekaligus menjaga struktur ini tetap fleksibel dan efisien.
+
+- *Behavioral* *Pattern* adalah menjaga komunikasi yang efektif dan penugasan tanggung jawab antar objek.
+
+*   Creational Pattern
+*Factory* *Method* pola desain kreasi yang menyediakan antarmuka untuk membuat objek dalam superclass, tetapi mengizinkan subkelas untuk mengubah jenis objek yang akan dibuat.
+
+*Contoh* *Masalah* Bayangkan anda mempunyai aplikasi delivery (pengantaran barang) tapi hanya melayani di jalanan saja . Seiring waktu aplikasi anda populer anda banyak client yang menyarankan fitur di melayani di lautan juga. Pikir anda mungkin kalau sekedar satu fitur saja , anda bisa melakukan nya dengan hard code tapi kedepan nya kalau ada penyaranan fitur baru lebih dari satu , mungkin akan susah.
+.image ../assets/images/factory_problem.png
+
+*   Creational Pattern
+*Solusi* Dengan contoh masalah tadi kita bisa menggunakan salah satu Design Pattern yaitu Factory Method Pattern.
+
+*Factory* *Method* menyarankan anda untuk membuat objek tidak menggunakan *new* operator akan tetapi memakai *factory* *method*. Setiap Objek yang terbuat dari *factory* *method* akan disebut produk. Mungkin bagi anda terlihat berguna atau sama saja tapi , pertimbangkan anda dapat menghasilkan objek produk yang berbeda beda di dalam *factory* *method* 
+
+Sebagai catatan objek produk yang dihasil dari *factory* *method* harus mengimplementasikan *interfaces* yang sama di karenakan di *factory* *method* akan mengembalikan tipe *interfaces* yang harus di implementasi setiap objek produk.
+
+
+*   Creational Pattern
+Semua produk harus implementasi *interfaces* yang sama.
+.image ../assets/images/factory_solution.png 
+Untuk contoh Truk dan Kapal harus mengimplementasikan *Transport* *interfaces* yang didalam nya ada delivery method.
+Setip class mengimplementasikan method delivery dengan berbeda-beda . Contoh nya beda logika,beda output dll.
+
+*   Creational Pattern
+.image ../assets/images/factory_method.png 
+*Factory* *Method* terletak dari pembuatan objek dua (Truk dan Kapal) tersebut anda bebas menamai nya tapi saran saya nama nya sesuai dengan konteks. Contoh :  RoadLogistic untuk pembuatan objek Truk , SeaLogistic untuk pembuata objek Kapal.
+ 
+*   Creational Pattern
+*Implementasi* *Di* *Kode* *Golang* 
+Di sini saya membuat implementasi nya bertemakan kurir 
+.code ../go/creational_pattern/factory/courier_factory.go
+context berguna agar bisa implementasi logika berbeda-beda (deadline,cancel,dll).
+
+*   Creational Pattern
+Kurir nya di bagi 2 ada kurir jalanan dan lautan. (ngarang banget :3)
+.code ../go/creational_pattern/factory/road_courier_factory.go /^//START_FIELD/,/^//END_FIELD/
+.code ../go/creational_pattern/factory/sea_courier_factory.go /^//START_FIELD/,/^//END_FIELD/
+
+*   Creational Pattern
+Untuk Implementasi Delivery Method Setiap Objek punya logika berbeda. Contoh Logika RoadCourier (fullcode ada di repository saya )
+.code ../go/creational_pattern/factory/road_courier_factory.go /^//START_DELIV/,/^//END_DELIV/
+
