@@ -57,3 +57,4 @@ Kurir nya di bagi 2 ada kurir jalanan dan lautan. (ngarang banget :3)
 Untuk Implementasi Delivery Method Setiap Objek punya logika berbeda. Contoh Logika RoadCourier (fullcode ada di repository saya )
 .code ../go/creational_pattern/factory/road_courier_factory.go /^//START_DELIV/,/^//END_DELIV/
 
+*   Creational Pattern
